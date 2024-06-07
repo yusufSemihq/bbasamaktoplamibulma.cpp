@@ -1,18 +1,26 @@
-#include<iostream>
+#include <iostream>
+#include <string>
 
 using namespace std;
- 
-int main()
-{
-	int a,no,sum=0;
-	cout << "Herhangi bir sayi giriniz: ";
-	cin >> no;
-	while(no>0)
-	{
-		a=no%10;
-		no=no/10;
-		sum=sum+a;
-	}
-	cout << "\nBasamaklar toplami: " << sum;
-	return 0;
+
+int basamakToplami(int sayi) {
+    int toplam = 0;
+    string sayiStr = to_string(sayi); 
+
+    for (char& rakam : sayiStr) {
+        toplam += rakam - '0'; 
+    }
+
+    return toplam;
+}
+
+int main() {
+    int sayi;
+    cout << "Bir sayı girin: ";
+    cin >> sayi;
+
+    int sonuc = basamakToplami(sayi);
+    cout << "Girdiğiniz sayının basamak toplamı: " << sonuc << endl;
+
+    return 0;
 }
